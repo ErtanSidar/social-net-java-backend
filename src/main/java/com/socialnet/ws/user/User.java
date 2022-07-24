@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,9 +26,12 @@ public class User {
 	private long id;
 	
 	@Column(name="username")
+	@NotNull
+	@Size(min=4)
 	private String username;
 	
 	@Column(name="display_name")
+	@NotNull
 	private String displayName;
 	
 	@Column(name="password")
