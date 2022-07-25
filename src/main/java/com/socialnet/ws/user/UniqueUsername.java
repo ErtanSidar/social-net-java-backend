@@ -13,7 +13,7 @@ import javax.validation.Payload;
 @Constraint(validatedBy = { UniqueUsernameValidator.class })
 public @interface UniqueUsername {
 	
-	String message() default "username must be unique";
+	String message() default "{social.constraint.username.UniqueUsername.message}";
 
 	Class<?>[] groups() default { };
 

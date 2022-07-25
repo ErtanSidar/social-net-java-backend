@@ -27,7 +27,7 @@ public class User {
 	private long id;
 	
 	@Column(name="username")
-	@NotNull
+	@NotNull(message = "{social.constraint.username.NotNull.message}")
 	@Size(min=4, max = 255)
 	@UniqueUsername
 	private String username;
@@ -39,7 +39,7 @@ public class User {
 	
 	@Column(name="password")
 	@NotNull
-	@Pattern(regexp="^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).*$")
+	@Pattern(regexp="^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).*$", message = "{social.constraint.passwod.pattern.message}")
 	@Size(min = 8, max = 255)
 	private String password;
 		
