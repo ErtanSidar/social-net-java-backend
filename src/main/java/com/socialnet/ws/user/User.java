@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
@@ -27,14 +28,19 @@ public class User {
 	
 	@Column(name="username")
 	@NotNull
-	@Size(min=4)
+	@Size(min=4, max = 255)
+	@UniqueUsername
 	private String username;
 	
 	@Column(name="display_name")
 	@NotNull
+	@Size(min=4, max = 255)
 	private String displayName;
 	
 	@Column(name="password")
+	@NotNull
+	@Pattern(regexp="^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).*$")
+	@Size(min = 8, max = 255)
 	private String password;
 		
 }
